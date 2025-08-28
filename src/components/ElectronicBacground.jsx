@@ -8,7 +8,7 @@ export default function ElectronicBackground() {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext("d")
     if (!ctx) return
 
     // Ajustar tamaño del canvas

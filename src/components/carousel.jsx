@@ -28,7 +28,7 @@ export default function Carousel({ items }) {
 
   // Auto-play functionality
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000)
+    const interval = setInterval(nextSlide, 1000)
     return () => clearInterval(interval)
   }, [])
 
@@ -68,12 +68,12 @@ export default function Carousel({ items }) {
             style={getCardStyle(index)}
             onClick={() => goToSlide(index)}
           >
-            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 group">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-transparent shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 group">
               <div className="relative w-full h-2/3 overflow-hidden">
                 <img
                   src={item.img || "/placeholder.svg"}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"//modificar la imagen dentro del contenedor 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 

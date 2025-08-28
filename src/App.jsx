@@ -8,11 +8,11 @@ import Contact from "./modules/Contact";
 export default function App() {
   return (
     <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen">
-      <Navbar />
+      {/*<Navbar >*/}
       <Home />
-      <Skills />
+      {/*<Skills />*/}
       <Projects />
-      <Contact />
+      {/*<Contact />*/}
     </div>
   );
 }

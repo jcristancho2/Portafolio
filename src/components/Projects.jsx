@@ -1,4 +1,3 @@
-"use client"
 
 import { useState, useEffect } from "react"
 
@@ -75,7 +74,7 @@ export default function Carousel({ items }) {
             <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-orange-500/20 shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
               <div className="relative w-full h-2/3 overflow-hidden">
                 <img
-                  src={item.img || "/placeholder.svg"}
+                  src={item.img || "/arenacombat.png"}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />

@@ -5,9 +5,9 @@ export default function Projects() {
   const { t } = useTranslation();
 
   const projects = [
-    { img: "/assets/proj1.png", title: "E-commerce" },
-    { img: "/assets/proj2.png", title: "Dashboard" },
-    { img: "/assets/proj3.png", title: "Portfolio" },
+    { img: "arenacombat.png", title: "Arena mortal combat" },
+    { img: "hamburgesaartesanal.png", title: "page" },
+    { img: "villanshub.png", title: "villanshub" },
   ];
 
   return (
