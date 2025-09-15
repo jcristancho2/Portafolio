@@ -1,10 +1,9 @@
-# Exported from Render on 2025-09-15T01:29:22Z
 services:
 - type: web
   name: IngCristancho_dev
   runtime: static
   repo: https://github.com/jcristancho2/Portafolio
-  buildCommand: npm run build
+  buildCommand: npm install --legacy-peer-deps && npm run build
   staticPublishPath: build
   autoDeployTrigger: commit
 version: "1"
