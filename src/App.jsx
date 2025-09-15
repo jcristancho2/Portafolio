@@ -7,12 +7,15 @@ import Contact from "./modules/Contact";
 
 export default function App() {
   return (
-    <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen">
-      {/*<Navbar >*/}
-      <Home />
-      {/*<Skills />*/}
-      <Projects />
-      {/*<Contact />*/}
+    <div className="relative min-h-screen bg-black">
+
+      <div className="relative z-10">
+        <Navbar />
+        <Home />
+        <Skills />
+        <Projects />
+        <Contact />
+      </div>
     </div>
   );
 }

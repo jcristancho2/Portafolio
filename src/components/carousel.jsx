@@ -53,7 +53,7 @@ export default function Carousel({ items }) {
         opacity: 0.4,
       }
     } else {
-      return { transform: "translateX(200%) scale(0.5)", zIndex: 1, opacity: 0 }
+      return { transform: "translateX(100%) scale(0.5)", zIndex: 1, opacity: 0 }
     }
   }
 
@@ -73,7 +73,7 @@ export default function Carousel({ items }) {
                 <img
                   src={item.img || "/placeholder.svg"}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"//modificar la imagen dentro del contenedor 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-100"//modificar la imagen dentro del contenedor 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
@@ -127,13 +127,6 @@ export default function Carousel({ items }) {
                     )}
                   </div>
                 )}
-              </div>
-
-              <div className="absolute inset-0 opacity-10 pointer-events-none">
-                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-orange-500/50" />
-                <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-orange-500/50" />
-                <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-orange-500/50" />
-                <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-orange-500/50" />
               </div>
             </div>
           </div>

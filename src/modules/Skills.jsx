@@ -8,7 +8,7 @@ export default function Skills() {
   const { t } = useTranslation();
 
   return (
-    <section id="skills" className="min-h-screen bg-black relative overflow-hidden py-20 px-8">
+    <section id="skills" className="min-h-screen bg-transparent relative overflow-hidden py-20 px-8">
       {/* Fondo decorativo */}
       <div className="absolute inset-0 opacity-20">
         <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
