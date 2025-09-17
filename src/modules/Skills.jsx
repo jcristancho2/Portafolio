@@ -48,12 +48,8 @@ export default function Skills() {
                   {skill.icon}
                   <h3 className="text-xl font-semibold">{skill.name}</h3>
                 </div>
-                <p className="mb-3">{skill.description}</p>
-                <ul className="list-disc list-inside text-sm space-y-1">
-                  {skill.details.map((detail, i) => (
-                    <li key={i}>{detail}</li>
-                  ))}
-                </ul>
+                
+                
               </div>
             ))}
           </div>

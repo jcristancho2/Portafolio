@@ -6,4 +6,4 @@ services:
   buildCommand: npm install --legacy-peer-deps && npm run build
   staticPublishPath: build
   autoDeployTrigger: commit
-version: "1"
+version: "2"

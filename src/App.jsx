@@ -4,11 +4,12 @@ import Home from "./modules/Home";
 import Skills from "./modules/Skills";
 import Projects from "./modules/Projects";
 import Contact from "./modules/Contact";
+import ElectronicBacground from"./components/ElectronicBacground"
 
 export default function App() {
   return (
     <div className="relative min-h-screen bg-black">
-
+      <ElectronicBacground/>
       <div className="relative z-10">
         <Navbar />
         <Home />
