@@ -33,8 +33,10 @@ export default function Home() {
 
   return (
     <section id="home" className="min-h-screen bg-transparent text-white relative overflow-hidden">
+      
       {/* Hero Section */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-6 lg:px-8">
+      {/*<img src="/unnamed-removebg-preview.png" alt="Profile" className="absolute right-0 mx-auto h-full w-auto object-contain" />*/}
         <div className="max-w-7xl w-full">
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -121,7 +123,7 @@ export default function Home() {
                 isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
               }`}
             >
-              <img src="/unnamed-removebg-preview.png" alt="Profile" className="mx-auto h-full w-auto object-contain" />
+              
               
             </div>
           </div>
