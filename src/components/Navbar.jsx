@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-orange-500/20">
-      <div className="flex justify-between items-center p-4">
+      <div className="flex justify-between items-center p-2">
         {/* Logo */}
         <div className="text-xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
           Jcristancho
@@ -33,6 +33,12 @@ export default function Navbar() {
             <li>
               <a href="#about" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
                 {t("SOBRE MI")}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#Skills" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 relative group">
+                {t("SKILLS")}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
               </a>
             </li>
@@ -57,7 +63,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Abrir menú"
         >
-          {isOpen ? <SquareX size={35} /> : <SquareMenu size={40} />}
+          {isOpen ? <SquareX size={30} /> : <SquareMenu size={35} />}
         </button>
 
         {/* Idioma + Tema */}

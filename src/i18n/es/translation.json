@@ -3,8 +3,9 @@
   "about": {
     "info": "Hola, soy",
     "whoAmI": "Jorge Andrés Cristancho Olarte.",
-    "description1": " Me encanta desarrollar software y crear soluciones que realmente sean útiles para las personas. Trabajo con C#, .NET, React y MySQL, y disfruto tanto construir aplicaciones web como experimentar con prototipos electrónicos.",
-    "description2": "Me motiva aprender cosas nuevas, enfrentar retos que me hagan crecer y entregar proyectos de calidad que tengan un impacto real. Siempre busco combinar creatividad y eficiencia en todo lo que hago."
+     
+    "description1": "ingeniero electrónico y desarrollador de software junior apasionado por la tecnología y el aprendizaje continuo. Me motiva superar retos y transformar ideas en soluciones prácticas que combinan creatividad, eficiencia y buen diseño",
+    "description2": "Disfruto aprender nuevas herramientas, colaborar en proyectos y explorar áreas como inteligencia artificial y desarrollo fullstack, con el objetivo de crecer profesionalmente y aportar valor en cada proyecto en el que participo"
   },
   "home": {
     "card": {
@@ -21,5 +22,32 @@
         "Innovando"
       ]
     }
+  },
+  "contact": {
+    "title": "CONTACTO",
+    "subtitle": "Suelo responder en menos de 24 horas.",
+    "emailSubject": "Nuevo mensaje de",
+    "infoTitle": "Información",
+    "infoLinkedin": "Para LinkedIn te contactaré manualmente.",
+    "successTitle": "Éxito",
+    "successMessage": "Mensaje enviado correctamente. Te contactaré pronto.",
+    "errorTitle": "Error",
+    "errorMessage": "Hubo un problema al enviar tu mensaje. Intenta nuevamente.",
+    "warningTitle": "Advertencia",
+    "warningMessage": "Error de conexión con el servidor. Verifica tu internet.",
+    "preferContact": "Prefiero que me contactes por",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "placeholderName": "Tu nombre",
+      "placeholderEmail": "tucorreo@ejemplo.com",
+      "placeholderMessage": "Cuéntame en pocas líneas qué necesitas. Prometo responderte pronto!"
+    },
+    "privacy": "Acepto que uses mis datos únicamente para responder este mensaje. No enviarás spam.",
+    "button": "Enviar",
+    "sending": "Enviando..."
   }
+
+
 }

@@ -37,7 +37,7 @@ export default function Skills() {
   const skillsData = organizeSkillsByCategory();
 
   return (
-    <div className="min-h-screen bg-transparent from-slate-900 via-slate-800 to-slate-900">
+    <div id="skills" className="py-12 sm:py-16 md:py-24 bg-transparent from-slate-900 via-slate-800 to-slate-900">
       {/* ================== HABILIDADES TÉCNICAS ================== */}
       <section className="py-20 px-8 relative">
         <div className="max-w-6xl mx-auto">
@@ -119,10 +119,10 @@ export default function Skills() {
       </section>
 
       {/* ================== HABILIDADES BLANDAS ================== */}
-      <section className="py-20 px-8">
+      <section className="py-10 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Encabezado */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
               Habilidades Blandas
             </h2>

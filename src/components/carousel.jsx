@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
 
 export default function Carousel({ items }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const nextSlide = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentIndex((prev) => (prev + 1) % items.length);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
+  const nextSlide = useCallback(() => {
+    if (isAnimating) return
+    setIsAnimating(true)
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length)
+    setTimeout(() => setIsAnimating(false), 500) // duración de animación
+  }, [isAnimating, items.length]);
 
   const prevSlide = () => {
     if (isAnimating) return;
@@ -30,7 +30,7 @@ export default function Carousel({ items }) {
   useEffect(() => {
     const interval = setInterval(nextSlide, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [nextSlide]);
 
   const getCardStyle = (index) => {
     const diff = index - currentIndex;
@@ -62,24 +62,24 @@ export default function Carousel({ items }) {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden flex flex-col items-center ">
-      {/* Contenedor principal */}
-      <div className="relative w-full h-[650px] flex justify-center items-center perspective-1000">
+    <div className="relative w-full h-[500px] sm:h-[550px] mt-12 flex flex-col items-center">
+  {/* Contenedor principal */}
+      <div className="relative w-full h-full flex justify-center items-center perspective-1000">
         {items.map((item, index) => (
           <div
             key={index}
-            className="absolute w-96 h-90 sm:w-80 sm:h-110 cursor-pointer transition-all duration-500 ease-out preserve-3d"
+            className="absolute w-72 h-[320px] sm:w-80 sm:h-[350px] md:w-96 md:h-[400px] cursor-pointer transition-all duration-500 ease-out preserve-3d"
             style={getCardStyle(index)}
             onClick={() => goToSlide(index)}
           >
             {/* Tarjeta */}
-            <div className="relative w-full h-[400px] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-transparent shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 group">
-              <div className="relative w-full h-2/3 overflow-hidden">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-transparent shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 group">
+              {/* Imagen */}
+              <div className="relative w-full h-full md:h-full overflow-hidden">
                 <img
                   src={item.img || "/placeholder.svg"}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 {index === currentIndex && (
                   <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -109,30 +109,26 @@ export default function Carousel({ items }) {
                 )}
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/90 to-transparent">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+              {/* Info */}
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl p-4 bg-transparent backdrop-blur-md shadow-lg border border-white/10">
+                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-orange-400 transition-colors">
                   {item.title}
                 </h3>
                 {item.description && (
-                  <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+                  <p className="text-gray-300 text-xs mb-2 line-clamp-2">
                     {item.description}
                   </p>
                 )}
-                {item.technologies && (
+                {Array.isArray(item.technologies) && item.technologies.length > 0 && (
                   <div className="flex flex-wrap gap-1">
                     {item.technologies.slice(0, 3).map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 text-xs bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30"
+                        className="px-2 py-0.5 text-[10px] bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30"
                       >
                         {tech}
                       </span>
                     ))}
-                    {item.technologies.length > 3 && (
-                      <span className="px-2 py-1 text-xs bg-gray-500/20 text-gray-300 rounded-full border border-gray-500/30">
-                        +{item.technologies.length - 3}
-                      </span>
-                    )}
                   </div>
                 )}
               </div>
@@ -141,37 +137,37 @@ export default function Carousel({ items }) {
         ))}
       </div>
 
-      {/* Botones */}
-      <button
-        onClick={prevSlide}
-        disabled={isAnimating}
-        className="absolute left-60 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
-      >
-        <ChevronLeft className="w-6 h-6 text-orange-400" />
-      </button>
-      <button
-        onClick={nextSlide}
-        disabled={isAnimating}
-        className="absolute right-60 top-1/2 -translate-y-1/2 p-4 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
-      >
-        <ChevronRight className="w-6 h-6 text-orange-400" />
-      </button>
+  {/* Botones */}
+  <button
+    onClick={prevSlide}
+    disabled={isAnimating}
+    className="absolute left-4 sm:left-10 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
+  >
+    <ChevronLeft className="w-6 h-6 text-orange-400" />
+  </button>
+  <button
+    onClick={nextSlide}
+    disabled={isAnimating}
+    className="absolute right-4 sm:right-10 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
+  >
+    <ChevronRight className="w-6 h-6 text-orange-400" />
+  </button>
 
-      {/* Puntos */}
-      <div className="flex justify-center mt-10 gap-2">
-        {items.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            disabled={isAnimating}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? "bg-orange-500 shadow-lg shadow-orange-500/50"
-                : "bg-gray-600 hover:bg-gray-500"
-            }`}
-          />
-        ))}
-      </div>
-    </div>
+  {/* Puntos */}
+  <div className="flex justify-center mt-6 gap-2">
+    {items.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => goToSlide(index)}
+        disabled={isAnimating}
+        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+          index === currentIndex
+            ? "bg-orange-500 shadow-lg shadow-orange-500/50"
+            : "bg-gray-600 hover:bg-gray-500"
+        }`}
+      />
+    ))}
+  </div>
+</div>
   );
 }

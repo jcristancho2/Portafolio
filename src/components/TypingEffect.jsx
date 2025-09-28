@@ -64,11 +64,11 @@ export default function TypingEffect({
   const display = texts && texts.length ? texts[index].slice(0, subIndex) : "";
 
   return (
-    <span className={`inline-flex items-center ${className}`}>
+    <span className={`inline-block items-center ${className}`}>
       <span aria-live="polite">{display}</span>
       <span
         aria-hidden="true"
-        className={`ml-1 select-none transition-opacity duration-200 ${blink ? "opacity-100" : "opacity-30"}`}
+        className={`ml-0 select-none transition-opacity duration-200 ${blink ? "opacity-100" : "opacity-30"}`}
       >
         {cursor}
       </span>

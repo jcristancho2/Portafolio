@@ -13,7 +13,7 @@ export default function App() {
       <ElectronicBacground/>
       <div className="relative z-50">
         <Navbar />
-        <div className="relative z-10 pb-10 lg:pb-10">
+        <div className="relative z-10">
           <Home />
           <About/>
           <Skills />

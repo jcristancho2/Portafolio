@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
   const { t } = useTranslation();
-  const [selectedProject] = useState("");
+
   const [selectedContact, setSelectedContact] = useState("Email");
   const [formData, setFormData] = useState({
     name: "",
@@ -14,133 +14,146 @@ export default function Contact() {
   });
 
   const contactMethods = ["Email", "WhatsApp"];
-
   const [loading, setLoading] = useState(false);
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-  try {
-    let url = "";
-    let body = {};
-
-    if (selectedContact === "Email") {
-      url = `${process.env.REACT_APP_API_URL}/email/send`;
-      body = {
-        to: formData.email,
-        subject: `Nuevo mensaje de ${formData.name}`,
-        message: formData.message,
-      };
-    } else if (selectedContact === "WhatsApp") {
-      url = `${process.env.REACT_APP_API_URL}/whatsapp/send`;
-      body = {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      };
-    } else {
-      toast.info(
-        <div>
-          <strong>📎 Información</strong>
-          <p>Para LinkedIn te contactaré manualmente.</p>
-        </div>
-      );
-      setLoading(false);
-      return;
-    }
-
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-
-    const text = await res.text();
-    let data;
     try {
-      data = JSON.parse(text);
-    } catch {
-      console.warn("La respuesta no es JSON");
-      data = {};
-    }
+      let url = "";
+      let body = {};
 
-    if (data.status === "success") {
-      toast.success(
+      if (selectedContact === "Email") {
+        url = `${process.env.REACT_APP_API_URL}/email/send`;
+        body = {
+          to: formData.email,
+          subject: `${t("contact.emailSubject")} ${formData.name}`,
+          message: formData.message,
+        };
+      } else if (selectedContact === "WhatsApp") {
+        url = `${process.env.REACT_APP_API_URL}/whatsapp/send`;
+        body = {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        };
+      } else {
+        toast.info(
+          <div>
+            <strong>📎 {t("contact.infoTitle")}</strong>
+            <p>{t("contact.infoLinkedin")}</p>
+          </div>
+        );
+        setLoading(false);
+        return;
+      }
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        console.warn("La respuesta no es JSON");
+        data = {};
+      }
+
+      if (data.status === "success") {
+        toast.success(
+          <div>
+            <strong>✅ {t("contact.successTitle")}</strong>
+            <p>{t("contact.successMessage")}</p>
+          </div>,
+          { autoClose: 5000, theme: "colored" }
+        );
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error(
+          <div>
+            <strong>❌ {t("contact.errorTitle")}</strong>
+            <p>{t("contact.errorMessage")}</p>
+          </div>,
+          { autoClose: 6000, theme: "colored" }
+        );
+      }
+    } catch (error) {
+      console.error("Error enviando formulario:", error);
+      toast.warn(
         <div>
-          <strong>✅ Éxito</strong>
-          <p>Mensaje enviado correctamente. Te contactaré pronto.</p>
-        </div>,
-        { autoClose: 5000, theme: "colored" }
-      );
-      setFormData({ name: "", email: "", message: "" });
-    } else {
-      toast.error(
-        <div>
-          <strong>❌ Error</strong>
-          <p>Hubo un problema al enviar tu mensaje. Intenta nuevamente.</p>
+          <strong>⚠️ {t("contact.warningTitle")}</strong>
+          <p>{t("contact.warningMessage")}</p>
         </div>,
         { autoClose: 6000, theme: "colored" }
       );
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error("Error enviando formulario:", error);
-    toast.warn(
-      <div>
-        <strong>⚠️ Advertencia</strong>
-        <p>Error de conexión con el servidor. Verifica tu internet.</p>
-      </div>,
-      { autoClose: 6000, theme: "colored" }
-    );
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
-    <section id="contact" className="min-h-screen bg-transparent text-white relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-6 sm:py-12 md:py-8 bg-transparent text-white relative overflow-hidden"
+    >
       <ToastContainer position="top-right" autoClose={4000} />
 
-      <div className="relative z-10 container mx-auto px-6 py-20">
-        <div className="text-center mb-10">
+      <div className="relative z-10 container mx-auto px-6 py-12">
+        <div className="text-center mb-6">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
-            CONTACTO
+            {t("contact.title")}
           </h1>
-          <p className="text-gray-400 text-2xl max-w-2xl mx-auto">
-            Suelo responder en menos de 24 horas.
+          <p className="text-gray-400 text-xl max-w-xl mx-auto">
+            {t("contact.subtitle")}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-1 gap-10 max-w-2xl mx-auto">
-          <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-10">
+        <div className="grid lg:grid-cols-1 gap-6 max-w-xl mx-auto">
+          <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6">
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Nombre */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Nombre</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  {t("contact.form.name")}
+                </label>
                 <input
                   type="text"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Tu nombre"
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  placeholder={t("contact.form.placeholderName")}
                   className="w-full p-4 bg-gray-800/50 border border-gray-700 rounded-lg focus:border-cyan-400 focus:outline-none transition-colors text-white placeholder-gray-500"
                   required
                 />
               </div>
 
+              {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  {t("contact.form.email")}
+                </label>
                 <input
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="tucorreo@ejemplo.com"
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  placeholder={t("contact.form.placeholderEmail")}
                   className="w-full p-4 bg-gray-800/50 border border-gray-700 rounded-lg focus:border-cyan-400 focus:outline-none transition-colors text-white placeholder-gray-500"
                   required
                 />
               </div>
 
+              {/* Métodos de contacto */}
               <div>
                 <label className="flex text-sm font-medium text-gray-300 mb-2 justify-center">
-                  Prefiero que me contactes por
+                  {t("contact.preferContact")}
                 </label>
                 <div className="flex gap-5 justify-center">
                   {contactMethods.map((method) => (
@@ -160,18 +173,24 @@ const handleSubmit = async (e) => {
                 </div>
               </div>
 
+              {/* Mensaje */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Mensaje</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  {t("contact.form.message")}
+                </label>
                 <textarea
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder=" Cuéntame en pocas líneas qué necesitas. Prometo responderte pronto!"
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  placeholder={t("contact.form.placeholderMessage")}
                   rows={4}
                   className="w-full bg-gray-800/50 border border-gray-700 rounded-lg focus:border-cyan-400 focus:outline-none transition-colors text-white placeholder-gray-500 resize-none"
                   required
                 />
               </div>
 
+              {/* Privacidad */}
               <div className="flex items-start gap-3">
                 <input
                   type="checkbox"
@@ -180,18 +199,20 @@ const handleSubmit = async (e) => {
                   required
                 />
                 <label htmlFor="privacy" className="text-sm text-gray-400">
-                  Acepto que uses mis datos únicamente para responder este mensaje. No enviarás spam.
+                  {t("contact.privacy")}
                 </label>
               </div>
+
+              {/* Botón */}
               <div className="text-center">
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-1/2 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 ${
+                  className={`w-1/2 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 ${
                     loading ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
-                  {loading ? "Enviando..." : "Enviar"}
+                  {loading ? t("contact.sending") : t("contact.button")}
                 </button>
               </div>
             </form>
