@@ -1,7 +1,0 @@
-{
-  "navbar": { "home": "Home", "skills": "Skills", "projects": "Projects", "contact": "Contact" },
-  "home": { "welcome": "Welcome to my Portfolio" },
-  "skills": { "title": "Skills" },
-  "projects": { "title": "Projects" },
-  "contact": { "title": "Contact Me" }
-}

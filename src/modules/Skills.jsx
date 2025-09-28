@@ -50,21 +50,21 @@ export default function Skills() {
             <h1 className="text-5xl font-bold text-white mb-4">
               Habilidades Técnicas
             </h1>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            <p className="text-slate-300 text-xl max-w-2xl mx-auto">
               Una visión integral de mi experiencia técnica en diferentes dominios
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {Object.entries(skillsData).map(([category, skills], categoryIndex) => (
               <motion.div
                 key={category}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300"
+                className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300"
               >
-                <h2 className="text-xl font-semibold text-white mb-6 text-center">
+                <h2 className="text-xl font-bold text-white mb-4 text-center">
                   {category}
                 </h2>
 
@@ -72,7 +72,7 @@ export default function Skills() {
                   className={`${
                     skills.length % 2 === 1
                       ? 'flex flex-wrap justify-center gap-4'
-                      : 'grid grid-cols-2 gap-4'
+                      : 'flex flex-wrap grid-cols-2 justify-center gap-4'
                   }`}
                 >
                   {skills.map((skill, skillIndex) => (
@@ -86,7 +86,7 @@ export default function Skills() {
                       }}
                       whileHover={{ scale: 1.05, y: -2 }}
                       className={`bg-gradient-to-br ${skill.color} rounded-xl p-4 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group relative overflow-hidden ${
-                        skills.length % 2 === 1 ? 'w-[calc(50%-0.5rem)]' : ''
+                        skills.length % 2 === 1 ? 'w-[calc(30%-0.5rem)]' : 'w-[calc(30%-0.5rem)]'
                       }`}
                     >
                       <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-200 flex items-center justify-center">
@@ -97,17 +97,16 @@ export default function Skills() {
                       </span>
 
                       {/* Overlay al hacer hover */}
-                      <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-2 text-xs">
-                        <p className="text-center mb-1">{skill.description}</p>
+                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex flex-col items-center justify-center p-2 text-xs">
+                        
                         <div className="flex flex-wrap gap-1 justify-center">
-                          {skill.details.slice(0, 2).map((detail, idx) => (
-                            <span
-                              key={idx}
-                              className="bg-white/20 px-1 py-0.5 rounded text-xs"
+                            <a
+                              href={skill.docLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="mt-2 px-3 py-1 text-xs font-semibold text-white rounded-lg bg-transparent hover:bg-white/30 transition-all duration-300"
                             >
-                              {detail}
-                            </span>
-                          ))}
+                            </a>
                         </div>
                       </div>
                     </motion.div>

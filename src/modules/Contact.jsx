@@ -106,7 +106,7 @@ const handleSubmit = async (e) => {
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
             CONTACTO
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-2xl max-w-2xl mx-auto">
             Suelo responder en menos de 24 horas.
           </p>
         </div>
@@ -165,7 +165,7 @@ const handleSubmit = async (e) => {
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Cuéntame en pocas líneas qué necesitas. Prometo responderte pronto!"
+                  placeholder=" Cuéntame en pocas líneas qué necesitas. Prometo responderte pronto!"
                   rows={4}
                   className="w-full bg-gray-800/50 border border-gray-700 rounded-lg focus:border-cyan-400 focus:outline-none transition-colors text-white placeholder-gray-500 resize-none"
                   required

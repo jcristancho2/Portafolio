@@ -1,0 +1,9 @@
+{
+  "About": "Sobre Mí",
+  "about": {
+    "info": "Hola, soy",
+    "whoAmI": "Jorge Andrés Cristancho Olarte.",
+    "description1": " Me encanta desarrollar software y crear soluciones que realmente sean útiles para las personas. Trabajo con C#, .NET, React y MySQL, y disfruto tanto construir aplicaciones web como experimentar con prototipos electrónicos.",
+    "description2": "Me motiva aprender cosas nuevas, enfrentar retos que me hagan crecer y entregar proyectos de calidad que tengan un impacto real. Siempre busco combinar creatividad y eficiencia en todo lo que hago."
+  }
+}

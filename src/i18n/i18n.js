@@ -1,24 +1,20 @@
+// src/i18n/i18n.js
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import en from "./en/translation.json";
+import es from "./es/translation.json";
 
-i18n.use(initReactI18next).init({
-  resources: {
-    en: {
-      translation: {
-        welcome: "Welcome to my portfolio",
-      },
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { translation: en },
+      es: { translation: es },
     },
-    es: {
-      translation: {
-        welcome: "Bienvenido a mi portafolio",
-      },
-    },
-  },
-  lng: "es", // idioma inicial
-  fallbackLng: "en",
-  interpolation: {
-    escapeValue: false,
-  },
-});
+    lng: "es", // idioma inicial
+    fallbackLng: "en",
+    interpolation: { escapeValue: false },
+  });
 
 export default i18n;
+

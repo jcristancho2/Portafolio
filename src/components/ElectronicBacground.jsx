@@ -37,7 +37,7 @@ export default function ElectronicBackground() {
 
     const animate = () => {
       // Fondo semitransparente para efecto de trail
-      ctx.fillStyle = "rgba(0,0,0,0.05)";
+      ctx.fillStyle = "rgba(9,9,9,9)";//#090909
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Mover nodos y aplicar repulsión

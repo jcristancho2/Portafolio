@@ -1,7 +1,0 @@
-{
-  "navbar": { "home": "Inicio", "skills": "Habilidades", "projects": "Proyectos", "contact": "Contacto" },
-  "home": { "welcome": "Bienvenido a mi Portafolio" },
-  "skills": { "title": "Habilidades" },
-  "projects": { "title": "Proyectos" },
-  "contact": { "title": "Contáctame" }
-}

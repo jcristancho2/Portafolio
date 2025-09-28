@@ -4,7 +4,8 @@ import Home from "./modules/Home";
 import Skills from "./modules/Skills";
 import Projects from "./modules/Projects";
 import Contact from "./modules/Contact";
-import ElectronicBacground from"./components/ElectronicBacground"
+import ElectronicBacground from"./components/ElectronicBacground";
+import About from "./modules/About";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <div className="relative z-10">
         <Navbar />
         <Home />
+        <About/>
         <Skills />
         <Projects />
         <Contact />

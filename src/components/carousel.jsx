@@ -1,82 +1,86 @@
-import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react"
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
 
 export default function Carousel({ items }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const nextSlide = () => {
-    if (isAnimating) return
-    setIsAnimating(true)
-    setCurrentIndex((prev) => (prev + 1) % items.length)
-    setTimeout(() => setIsAnimating(false), 500)
-  }
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev + 1) % items.length);
+    setTimeout(() => setIsAnimating(false), 500);
+  };
 
   const prevSlide = () => {
-    if (isAnimating) return
-    setIsAnimating(true)
-    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length)
-    setTimeout(() => setIsAnimating(false), 500)
-  }
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
+    setTimeout(() => setIsAnimating(false), 500);
+  };
 
   const goToSlide = (index) => {
-    if (isAnimating || index === currentIndex) return
-    setIsAnimating(true)
-    setCurrentIndex(index)
-    setTimeout(() => setIsAnimating(false), 500)
-  }
+    if (isAnimating || index === currentIndex) return;
+    setIsAnimating(true);
+    setCurrentIndex(index);
+    setTimeout(() => setIsAnimating(false), 500);
+  };
 
-  // Auto-play functionality
+  // Auto-play
   useEffect(() => {
-    const interval = setInterval(nextSlide, 1000)
-    return () => clearInterval(interval)
-  }, [])
+    const interval = setInterval(nextSlide, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const getCardStyle = (index) => {
-    const diff = index - currentIndex
-    const absIndex = Math.abs(diff)
+    const diff = index - currentIndex;
+    const absIndex = Math.abs(diff);
 
     if (absIndex === 0) {
-      return { transform: "translateX(0%) scale(1) rotateY(0deg)", zIndex: 10, opacity: 1 }
+      return {
+        transform: "translateX(0%) scale(1.2) rotateY(0deg)",
+        zIndex: 10,
+        opacity: 1,
+      };
     } else if (absIndex === 1) {
-      const direction = diff > 0 ? 1 : -1
+      const direction = diff > 0 ? 1 : -1;
       return {
-        transform: `translateX(${direction * 60}%) scale(0.85) rotateY(${-direction * 25}deg)`,
+        transform: `translateX(${direction * 70}%) scale(1) rotateY(${-direction * 25}deg)`,
         zIndex: 5,
-        opacity: 0.7,
-      }
+        opacity: 0.8,
+      };
     } else if (absIndex === 2) {
-      const direction = diff > 0 ? 1 : -1
+      const direction = diff > 0 ? 1 : -1;
       return {
-        transform: `translateX(${direction * 100}%) scale(0.7) rotateY(${-direction * 45}deg)`,
+        transform: `translateX(${direction * 120}%) scale(0.85) rotateY(${-direction * 45}deg)`,
         zIndex: 2,
-        opacity: 0.4,
-      }
+        opacity: 0.5,
+      };
     } else {
-      return { transform: "translateX(100%) scale(0.5)", zIndex: 1, opacity: 0 }
+      return { transform: "translateX(150%) scale(0.7)", zIndex: 1, opacity: 0 };
     }
-  }
+  };
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto px-4">
-      {/* Main carousel container */}
-      <div className="relative h-96 flex items-center justify-center perspective-1000">
+    <div className="relative w-full h-screen overflow-hidden flex flex-col items-center">
+      {/* Contenedor principal */}
+      <div className="relative w-full h-[650px] flex justify-center items-center perspective-1000">
         {items.map((item, index) => (
           <div
             key={index}
-            className="absolute w-80 h-80 cursor-pointer transition-all duration-500 ease-out preserve-3d"
+            className="absolute w-96 h-90 sm:w-80 sm:h-110 cursor-pointer transition-all duration-500 ease-out preserve-3d"
             style={getCardStyle(index)}
             onClick={() => goToSlide(index)}
           >
-            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-transparent shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 group">
+            {/* Tarjeta */}
+            <div className="relative w-full h-[400px] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-transparent shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 group">
               <div className="relative w-full h-2/3 overflow-hidden">
                 <img
                   src={item.img || "/placeholder.svg"}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-100"//modificar la imagen dentro del contenedor 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
                 {index === currentIndex && (
                   <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {item.liveUrl && (
@@ -109,7 +113,11 @@ export default function Carousel({ items }) {
                 <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
                   {item.title}
                 </h3>
-                {item.description && <p className="text-gray-300 text-sm mb-3 line-clamp-2">{item.description}</p>}
+                {item.description && (
+                  <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+                    {item.description}
+                  </p>
+                )}
                 {item.technologies && (
                   <div className="flex flex-wrap gap-1">
                     {item.technologies.slice(0, 3).map((tech, idx) => (
@@ -133,34 +141,37 @@ export default function Carousel({ items }) {
         ))}
       </div>
 
+      {/* Botones */}
       <button
         onClick={prevSlide}
         disabled={isAnimating}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
+        className="absolute left-60 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
       >
         <ChevronLeft className="w-6 h-6 text-orange-400" />
       </button>
-
       <button
         onClick={nextSlide}
         disabled={isAnimating}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
+        className="absolute right-60 top-1/2 -translate-y-1/2 p-4 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
       >
         <ChevronRight className="w-6 h-6 text-orange-400" />
       </button>
 
-      <div className="flex justify-center mt-8 gap-2">
+      {/* Puntos */}
+      <div className="flex justify-center mt-10 gap-2">
         {items.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             disabled={isAnimating}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex ? "bg-orange-500 shadow-lg shadow-orange-500/50" : "bg-gray-600 hover:bg-gray-500"
+              index === currentIndex
+                ? "bg-orange-500 shadow-lg shadow-orange-500/50"
+                : "bg-gray-600 hover:bg-gray-500"
             }`}
           />
         ))}
       </div>
     </div>
-  )
+  );
 }

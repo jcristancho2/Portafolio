@@ -11,9 +11,13 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="p-8">
-      <h2 className="text-2xl font-semibold text-center mb-4">{t("projects.title")}</h2>
-      <Carousel items={projects} />
+    <section id="projects" className="py-12  bg-transparent text-white py-4 sm:py-6 lg:py-20 gap-10 relative overflow-hidden">
+      <div className="text-center mb-10">
+        <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
+          {t("projectos")}
+        </h2>
+      </div>
+      <Carousel items={projects}  />
     </section>
   );
 }

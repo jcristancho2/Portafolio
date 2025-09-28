@@ -2,112 +2,90 @@
 const technicalSkills = [
   // 🌐 Languages
   {
-    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML Icon" widt2h={60} height={60} />,
+    icon: <img src="https://cdn.simpleicons.org/html5/E34F2" alt="HTML Icon" width={60} height={60} />,
     name: "HTML5",
-    description: "Estructuración semántica de contenido web",
-    details: ["Etiquetas semánticas", "Accesibilidad", "SEO básico"],
-    color: "from-orange-200 to-red-800",
+    color: "from-orange-300/40 to-red-500/40", 
+    docLink: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS Icon" width={60} height={60} />,
     name: "CSS3",
-    description: "Estilización avanzada y responsive design",
-    details: ["Flexbox", "Grid", "Animaciones"],
-    color: "from-blue-500 to-indigo-500",
+    color: "from-blue-300/40 to-indigo-500/40",
+    docLink: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript Icon" width={60} height={60} />,
     name: "JavaScript",
-    description: "Lenguaje para aplicaciones dinámicas en la web",
-    details: ["ES6+", "DOM", "Asincronía"],
-    color: "from-yellow-200 to-yellow-900",
+    color: "from-yellow-200/40 to-yellow-500/30",
+    docLink: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python Icon" width={60} height={60} />,
     name: "Python",
-    description: "Lenguaje versátil para backend, IA y análisis de datos",
-    details: ["FastAPI / Flask", "Automatización", "Data Science"],
-    color: "from-yellow-200 to-green-500",
+    color: "from-green-300/30 to-green-500/30",
+    docLink: "https://www.python.org/doc/",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C# Icon" width={60} height={60} />,
     name: "C#",
-    description: "Lenguaje moderno para aplicaciones .NET",
-    details: ["POO", "LINQ", "Aplicaciones multiplataforma"],
-    color: "from-purple-200 to-pink-500",
+    color: "from-purple-300/30 to-pink-400/30",
+    docLink: "https://learn.microsoft.com/en-us/dotnet/csharp/",
   },
-
-  // ⚛ Frameworks
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap Icon" width={60} height={60} />,
     name: "Bootstrap",
-    description: "Framework CSS para prototipado rápido y responsive",
-    details: ["Grid System", "Componentes UI", "Tematización"],
-    color: "from-purple-200 to-pink-400",
+    color: "from-purple-200/30 to-pink-300/30",
+    docLink: "https://getbootstrap.com/docs/5.0/getting-started/introduction/",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"  alt="Tailwind Icon" width={60} height={60} />,
     name: "TailwindCSS",
-    description: "Framework utilitario de CSS altamente personalizable",
-    details: ["Responsive design", "Dark mode", "Plugins"],
-    color: "from-cyan-500 to-blue-500",
+    color: "from-cyan-300/30 to-blue-400/30",
+    docLink: "https://tailwindcss.com/docs",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" alt="Vite Icon" width={60} height={60} />,
     name: "Vite",
-    description: "Herramienta de build rápida para frontend moderno",
-    details: ["HMR", "Optimización de bundles", "Plugins"],
-    color: "from-yellow-400 to-orange-500",
+    color: "from-yellow-200/30 to-orange-300/30",
+    docLink: "https://vitejs.dev/guide/",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React Icon" width={60} height={60} />,
     name: "React",
-    description: "Desarrollo de aplicaciones web modernas y escalables",
-    details: ["Hooks avanzados", "Server Components", "Optimización de rendimiento"],
-    color: "from-blue-500 to-cyan-500",
+    color: "from-blue-300/40 to-cyan-400/40",
+    docLink: "https://react.dev/learn",
   },
-
-  // 🗄 Backend & DB
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" alt=".NET Icon" width={60} height={60} />,
     name: ".NET",
-    description: "Framework para aplicaciones empresariales robustas",
-    details: ["Entity Framework", "ASP.NET Core", "APIs REST"],
-    color: "from-purple-600 to-blue-700",
+    color: "from-purple-400/30 to-blue-500/30",
+    docLink: "https://learn.microsoft.com/en-us/dotnet/core/",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL Icon" width={60} height={60} />,
     name: "MySQL",
-    description: "Sistema de base de datos relacional",
-    details: ["Consultas complejas", "Procedimientos almacenados", "Optimización de índices"],
-    color: "from-blue-500 to-cyan-600",
+    color: "from-blue-300/30 to-cyan-400/30",
+    docLink: "https://dev.mysql.com/doc/",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL Icon" width={60} height={60} />,
     name: "PostgreSQL",
-    description: "Base de datos relacional potente y escalable",
-    details: ["Funciones", "Triggers", "Escalabilidad"],
-    color: "from-sky-500 to-blue-800",
+    color: "from-sky-300/30 to-blue-500/30",
+    docLink: "https://www.postgresql.org/docs/",
   },
-
-  // 🛠 Tools
-
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git Icon" width={60} height={60} />,
     name: "Git",
-    description: "Control de versiones distribuido",
-    details: ["Branching", "GitHub/GitLab", "CI/CD"],
-    color: "from-orange-100 to-red-600",
+    color: "from-orange-200/30 to-red-300/30",
+    docLink: "https://git-scm.com/doc",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker Icon" width={60} height={60} />,
     name: "Docker",
-    description: "Contenedores para despliegue y portabilidad",
-    details: ["Docker Compose", "Microservicios", "CI/CD"],
-    color: "from-blue-500 to-cyan-500",
+    color: "from-blue-300/30 to-cyan-400/30",
+    docLink: "https://docs.docker.com/",
   },
-
-
 ];
+
 
 export default technicalSkills;

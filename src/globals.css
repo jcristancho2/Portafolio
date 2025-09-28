@@ -138,3 +138,81 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+
+/* --- CÓDIGO AÑADIDO PARA EL EFECTO DE BRILLO ESPEJO --- */
+
+/* 1. Define el movimiento de deslizamiento del brillo */
+@keyframes mirror-shine-slide {
+  /* Inicia fuera de la tarjeta a la izquierda (la banda de 150% se mueve -150% + -50%) */
+  0% {
+    left: -200%; 
+  }
+  /* Termina fuera de la tarjeta a la derecha (la banda de 150% se mueve +150% + 50%) */
+  100% {
+    left: 200%;
+  }
+}
+
+/* 2. Clase base para el efecto de brillo */
+.shine-mirror-effect {
+  position: relative; /* Contenedor para el pseudo-elemento */
+  overflow: hidden; /* Oculta el brillo fuera de los límites */
+  z-index: 1; /* Asegura un orden de apilamiento */
+}
+
+/* 3. Pseudo-elemento que es el brillo en sí */
+.shine-mirror-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%; /* Posición inicial fuera de la vista (coincide con el keyframe 0%) */
+    width: 100%; /* Ancho de la tarjeta */
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    
+    /* Crea la banda de luz, inclinada 45 grados */
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 30%, /* El brillo más intenso */
+        rgba(255, 255, 255, 0.1) 70%,
+        rgba(255, 255, 255, 0) 100%
+    );
+
+    /* Opcional: Inclinar la banda de luz */
+    transform: skewX(-20deg); 
+}
+
+/* 4. Activa la animación al hacer hover */
+.shine-mirror-effect:hover::before {
+    animation: mirror-shine-slide 1.2s ease-in-out 1; /* 1.2 segundos, una sola vez */
+}
+
+/* --- CLASES DE BRILLO ORIGINALES (NO USADAS AQUÍ) --- */
+@keyframes shine {
+  0% {
+    transform: translate(-100%, -100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(150%, 150%) rotate(45deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(300%, 300%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.animate-shine {
+  animation: shine 3s infinite;
+}
+
+.paralegram1{
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); 
+}
+.paralegram2{
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}

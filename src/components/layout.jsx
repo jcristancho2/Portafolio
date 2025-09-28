@@ -4,9 +4,9 @@ import "./globals.css"
 import ElectronicBackground from "../components/ElectronicBackground"
 
 export const metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "",
+  description: "",
+  generator: "",
 }
 
 export default function RootLayout({ children }) {
