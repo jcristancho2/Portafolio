@@ -62,7 +62,7 @@ export default function Carousel({ items }) {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden flex flex-col items-center">
+    <div className="relative w-full h-screen overflow-hidden flex flex-col items-center ">
       {/* Contenedor principal */}
       <div className="relative w-full h-[650px] flex justify-center items-center perspective-1000">
         {items.map((item, index) => (

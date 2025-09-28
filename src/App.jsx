@@ -11,13 +11,15 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-black">
       <ElectronicBacground/>
-      <div className="relative z-10">
+      <div className="relative z-50">
         <Navbar />
-        <Home />
-        <About/>
-        <Skills />
-        <Projects />
-        <Contact />
+        <div className="relative z-10 pb-10 lg:pb-10">
+          <Home />
+          <About/>
+          <Skills />
+          <Projects />
+          <Contact />
+        </div>
       </div>
     </div>
   );
