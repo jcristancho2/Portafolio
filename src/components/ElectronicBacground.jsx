@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef,useContext} from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
+
 
 export default function ElectronicBackground() {
   const canvasRef = useRef(null);
-
+  const { theme } = useContext(ThemeContext);
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -37,7 +39,9 @@ export default function ElectronicBackground() {
 
     const animate = () => {
       // Fondo semitransparente para efecto de trail
-      ctx.fillStyle = "rgba(9,9,9,9)";//#090909
+     ctx.fillStyle = theme === "dark"
+        ? "rgba(9,9,9,9)" // Fondo oscuro
+        : "rgba(185, 185, 185, 0.9)"; // Fondo claro
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Mover nodos y aplicar repulsión
