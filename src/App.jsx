@@ -11,13 +11,13 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-gray-100 dark:bg-black transition-colors duration-300">
-        <ElectronicBacground/>
+      <div className="relative min-h-screen bg-transparent transition-colors duration-300">
+        <ElectronicBacground />
         <div className="relative z-50">
           <Navbar />
           <div className="relative z-10">
             <Home />
-            <About/>
+            <About />
             <Skills />
             <Projects />
             <Contact />
