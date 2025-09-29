@@ -40,7 +40,7 @@ export default function ElectronicBackground() {
     const animate = () => {
       // Fondo semitransparente para efecto de trail
      ctx.fillStyle = theme === "dark"
-        ? "rgba(9,9,9,9)" // Fondo oscuro
+        ? "rgba(9,9,9,0.9)" // Fondo oscuro
         : "rgba(185, 185, 185, 0.9)"; // Fondo claro
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
