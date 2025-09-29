@@ -1,22 +1,22 @@
-import { useEffect, useRef,useContext} from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
-
+import { useEffect, useRef, useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 export default function ElectronicBackground() {
   const canvasRef = useRef(null);
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext); // Obtiene el tema actual
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
     const nodes = [];
@@ -38,10 +38,11 @@ export default function ElectronicBackground() {
     let animationId;
 
     const animate = () => {
-      // Fondo semitransparente para efecto de trail
-     ctx.fillStyle = theme === "dark"
-        ? "rgba(19, 19, 19, 0.09)" // Fondo oscuro
-        : "rgba(185, 185, 185, 0.9)"; // Fondo claro
+      // Cambia el fondo según el tema
+      ctx.fillStyle =
+        theme === 'dark'
+          ? 'rgba(37, 35, 35, 0.9)' // Fondo oscuro
+          : 'rgba(240,240,240,0.9)'; // Fondo claro
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Mover nodos y aplicar repulsión
@@ -72,12 +73,22 @@ export default function ElectronicBackground() {
           const dy = nodes[i].y - nodes[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
           if (distance < connectionDistance) {
-            const hue = 200 + Math.sin(Date.now() * 0.002 + i + j) * 50;
-            ctx.strokeStyle = `hsla(${hue}, 70%, 60%, 0.3)`;
+            const hue =
+              theme === 'dark'
+                ? 200 + Math.sin(Date.now() * 0.002 + i + j) * 50
+                : 210 + Math.sin(Date.now() * 0.002 + i + j) * 30;
+            ctx.strokeStyle =
+              theme === 'dark'
+                ? `hsla(${hue}, 70%, 60%, 0.3)`
+                : `hsla(${hue}, 60%, 40%, 0.2)`;
             ctx.lineWidth = 1;
             ctx.beginPath();
-            const midX = (nodes[i].x + nodes[j].x) / 2 + Math.sin(Date.now() * 0.005 + i) * 10;
-            const midY = (nodes[i].y + nodes[j].y) / 2 + Math.cos(Date.now() * 0.005 + j) * 10;
+            const midX =
+              (nodes[i].x + nodes[j].x) / 2 +
+              Math.sin(Date.now() * 0.005 + i) * 10;
+            const midY =
+              (nodes[i].y + nodes[j].y) / 2 +
+              Math.cos(Date.now() * 0.005 + j) * 10;
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.quadraticCurveTo(midX, midY, nodes[j].x, nodes[j].y);
             ctx.stroke();
@@ -85,10 +96,16 @@ export default function ElectronicBackground() {
         }
       }
 
-      // Dibujar nodos sin sombras
+      // Dibujar nodos
       nodes.forEach((node, index) => {
-        const hue = 200 + Math.sin(Date.now() * 0.002 + index) * 50;
-        ctx.fillStyle = `hsla(${hue}, 70%, 60%, 0.8)`;
+        const hue =
+          theme === 'dark'
+            ? 200 + Math.sin(Date.now() * 0.002 + index) * 50
+            : 210 + Math.sin(Date.now() * 0.002 + index) * 30;
+        ctx.fillStyle =
+          theme === 'dark'
+            ? `hsla(${hue}, 70%, 60%, 0.8)`
+            : `hsla(${hue}, 60%, 40%, 0.7)`;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
         ctx.fill();
@@ -103,7 +120,10 @@ export default function ElectronicBackground() {
           vy: (Math.random() - 0.5) * 0.3,
           life: 2,
           size: Math.random() * 2 + 1,
-          color: `hsl(${Math.random() * 60 + 180}, 80%, 60%)`,
+          color:
+            theme === 'dark'
+              ? `hsl(${Math.random() * 60 + 180}, 80%, 60%)`
+              : `hsl(${Math.random() * 40 + 200}, 60%, 40%)`,
         });
       }
 
@@ -113,7 +133,7 @@ export default function ElectronicBackground() {
         p.life -= 0.02;
         if (p.life <= 0) particles.splice(i, 1);
         else {
-          ctx.fillStyle = p.color.replace(")", `, ${p.life})`);
+          ctx.fillStyle = p.color.replace(')', `, ${p.life})`);
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
           ctx.fill();
@@ -126,10 +146,10 @@ export default function ElectronicBackground() {
     animate();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationId);
     };
-  }, [theme]);
+  }, [theme]); // <- Escucha cambios de tema
 
   return (
     <canvas
