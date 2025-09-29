@@ -16,7 +16,7 @@ export default function Loader({ onFinish }) {
 
   return (
     <div
-      className={`fixed inset-0 flex flex-col items-center justify-center bg-black z-50 transition-opacity duration-700 ${
+      className={`fixed inset-0 flex flex-col items-center justify-center bg-white dark:bg-black z-50 transition-opacity duration-700 ${
         animateOut ? "opacity-0" : "opacity-100"
       }`}
     >
@@ -29,7 +29,7 @@ export default function Loader({ onFinish }) {
         }`}
       />
 
-      <p className="text-white mt-6 text-lg animate-pulse">Cargando...</p>
+      <p className="text-gray-900 dark:text-white mt-6 text-lg animate-pulse transition-colors duration-300">Cargando...</p>
     </div>
   )
 }

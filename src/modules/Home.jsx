@@ -18,39 +18,36 @@ export default function Home() {
   const [, setLoaded] = useState(false)
 
   const roles = ["SOFTWARE DEVELOPER", "ELECTRONIC ENGINEER"]
-  const homedescription = ["Beta", "Improving", "Learning", "Creating", "Innovating"]
+  //const homedescription = ["Beta", "Improving", "Learning", "Creating", "Innovating"]
 
   useEffect(() => {
-    setIsVisible(true)
+  setIsVisible(true)
 
-    // ciclo de roles
-    const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length)
-    }, 3000)
+  const interval = setInterval(() => {
+    setCurrentRole((prev) => (prev + 1) % roles.length)
+  }, 3000)
 
-    // simular tiempo de carga
-    const timer = setTimeout(() => {
-      setLoading(false)
-      setLoaded(true)
-    }, 1500)
+  const timer = setTimeout(() => {
+    setLoading(false)
+    setLoaded(true)
+  }, 1500)
 
-    return () => {
-      clearInterval(interval)
-      clearTimeout(timer)
-    }
-  }, [])
+  return () => {
+    clearInterval(interval)
+    clearTimeout(timer)
+  }
+}, [roles.length])
 
   const scrollToNext = () => {
-    document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" })
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
   }
-
   // 👇 mientras carga mostramos Loader
   if (loading) {
     return <Loader />
   }
 
   return (
-    <section id="home" className="max-h-screen bg-transparent text-white relative overflow-hidden flex flex-col lg:m-10"
+    <section id="home" className="max-h-screen bg-transparent text-gray-900 dark:text-white relative overflow-hidden flex flex-col lg:m-10 transition-colors duration-300"
     >
   
       {/* Hero Section */}
@@ -68,11 +65,11 @@ export default function Home() {
           />
 
           {/* Card de información sobrepuesta */}
-          <Card className="absolute z-100 left-70 bottom-0 lg:left-60 p-4 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg max-w-xl">
-            <h2 className="text-xl font-bold text-white mb-2">
+          <Card className="absolute z-100 left-70 bottom-0 lg:left-60 p-4 bg-white/10 dark:bg-white/10 backdrop-blur-sm border border-white/20 dark:border-white/20 shadow-lg max-w-xl">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
               {t("home.card.name")}
             </h2>
-            <p className="text-ml text-gray-200">
+            <p className="text-ml text-gray-700 dark:text-gray-200">
               {t("home.card.title")}r
             </p>
           </Card>
@@ -109,7 +106,7 @@ export default function Home() {
           {/* Social Links */}
           <div className="flex items-center justify-center lg:justify-start space-x-6">
             {[
-              { icon: Github, href: "https://github.com/jcristancho2 ", color: "hover:text-white-400" },
+              { icon: Github, href: "https://github.com/jcristancho2 ", color: "hover:text-gray-900 dark:hover:text-white" },
               { icon: Linkedin, href: "https://www.linkedin.com/in/jcristanchool", color: "hover:text-blue-400" },
               { icon: Mail, href: "mailto:jocristanchool@gmail.com", color: "hover:text-orange-400" },
               { icon: FileText, href: "https://drive.google.com/file/d/1DW2FGUqbqrcTxOp2QORjWc1YzB1jCFcj/view?usp=sharing", color: "hover:text-green-400" }, // 👈 Nuevo ítem para CV
@@ -121,7 +118,7 @@ export default function Home() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-gray-500 ${social.color} transform hover:scale-110 transition-all duration-300`}
+                  className={`text-gray-600 dark:text-gray-500 ${social.color} transform hover:scale-110 transition-all duration-300`}
                 >
                   <Icon className="w-8 h-8 sm:w-10 sm:h-10" />
                 </a>
@@ -132,10 +129,10 @@ export default function Home() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute z-50 bottom-20 left-1/2 transform -translate-x-1/2 z-10">
         <button
           onClick={scrollToNext}
-          className="text-gray-400 hover:text-white transition-colors duration-300 animate-bounce"
+          className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 animate-bounce"
         >
           <ChevronDown className="w-10 h-10 sm:w-12 sm:h-12" />
         </button>

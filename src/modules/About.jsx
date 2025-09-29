@@ -14,13 +14,13 @@ export default function About() {
 
   return (
     <section id="about" aria-labelledby="about-title" className="min-h-[70vh] md:min-h-screen 
-    bg-transparent text-white 
+    bg-transparent text-gray-900 dark:text-white 
     pt-16 sm:pt-16 md:pt-24 
     px-4 sm:px-6 md:px-12 lg:px-20 
-    flex justify-center items-start
+    flex justify-center items-start transition-colors duration-300
   ">
       {/* Tarjeta principal con efecto cristal */}
-        <Card className="relative z-10 w-full max-w-4xl p-5 sm:p-7 md:p-10 bg-gray-900/50 backdrop-blur-sm shadow-lg border border-gray-800/50 rounded-xl">
+        <Card className="relative z-10 w-full max-w-4xl p-5 sm:p-7 md:p-10 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm shadow-lg border border-gray-300/50 dark:border-gray-800/50 rounded-xl transition-colors duration-300">
           
           {/* Título */}
           <h2
@@ -53,7 +53,7 @@ export default function About() {
               }`}
             >
               {/* Subtítulo */}
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-center lg:text-left bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-center lg:text-left bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
                 {t("about.info")}
               </h3>
 
@@ -72,10 +72,10 @@ export default function About() {
               </div>
 
               {/* Descripciones */}
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed sm:mx-6 lg:mx-0">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed sm:mx-6 lg:mx-0">
                 {t("about.description1")}
               </p>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed sm:mx-6 lg:mx-0">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed sm:mx-6 lg:mx-0">
                 {t("about.description2")}
               </p>
             </div>

@@ -3,13 +3,13 @@
   "about": {
     "info": "Hi, I'm",
     "whoAmI": "Jorge Andrés Cristancho Olarte.",
-    "description1": "I love developing software and creating solutions that are truly useful to people. I work with C#, .NET, React, and MySQL, and I enjoy both building web applications and experimenting with electronic prototypes.",
-    "description2": "I am motivated by learning new things, facing challenges that help me grow, and delivering quality projects that have a real impact. I always seek to combine creativity and efficiency in everything I do."
+    "description1": "Electronic engineer and junior software developer passionate about technology and continuous learning. I am motivated to overcome challenges and transform ideas into practical solutions that combine creativity, efficiency, and good design.",
+    "description2": "I enjoy learning new tools, collaborating on projects, and exploring areas such as artificial intelligence and fullstack development, aiming to grow professionally and add value to every project I participate in."
   },
   "home": {
     "card": {
       "name": "Jorge Andres Cristancho Olarte",
-      "title": "Electronics Engineer and Software Developer"
+      "title": "Electronic Engineer and Software Developer"
     },
     "hero": {
       "always": "ALWAYS",
@@ -20,6 +20,153 @@
         "Creating",
         "Innovating"
       ]
+    }
+  },
+  "contact": {
+    "title": "CONTACT",
+    "subtitle": "I usually respond within 24 hours.",
+    "emailSubject": "New message from",
+    "infoTitle": "Information",
+    "infoLinkedin": "I will contact you manually via LinkedIn.",
+    "successTitle": "Success",
+    "successMessage": "Message sent successfully. I will contact you soon.",
+    "errorTitle": "Error",
+    "errorMessage": "There was a problem sending your message. Please try again.",
+    "warningTitle": "Warning",
+    "warningMessage": "Server connection error. Check your internet.",
+    "preferContact": "I prefer to be contacted via",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "placeholderName": "Your name",
+      "placeholderEmail": "youremail@example.com",
+      "placeholderMessage": "Tell me in a few lines what you need. I promise to respond soon!"
+    },
+    "privacy": "I agree that my data will only be used to respond to this message. No spam will be sent.",
+    "button": "Send",
+    "sending": "Sending..."
+  },
+  "navbar": {
+    "home": "HOME",
+    "about": "ABOUT ME",
+    "skills": "SKILLS",
+    "projects": "PROJECTS",
+    "contact": "CONTACT"
+  },
+  "skills": {
+    "technical": {
+      "title": "Technical Skills",
+      "subtitle": "A comprehensive view of my technical experience across different domains"
+    },
+    "categories": {
+      "Languages": "Languages",
+      "Frameworks": "Frameworks",
+      "Backend & DB": "Backend & DB",
+      "Tools": "Tools",
+      "Hardware & Others": "Hardware & Others"
+    },
+    "soft": {
+      "title": "Soft Skills",
+      "subtitle": "Interpersonal and management competencies that reinforce my technical profile",
+      "cta": "Shall we collaborate?",
+      "items": {
+        "Comunicación": "Communication",
+        "Liderazgo": "Leadership"
+      },
+      "descriptions": {
+        "Comunicación": "Ability to express ideas clearly...",
+        "Liderazgo": "Ability to motivate and guide teams..."
+      }
+    }
+  },
+  "softSkills": {
+    "liderazgo": {
+      "name": "Situational Leadership",
+      "description": "I adapt my leadership style according to the context and team, always maintaining focus and workflow.",
+      "details": [
+        "Delegate according to each person's strengths",
+        "Communicate objectives clearly and directly",
+        "Motivate by example and action"
+      ]
+    },
+    "analitico": {
+      "name": "Analytical Thinking",
+      "description": "I like to understand how the pieces fit, identify risks early, and design solutions that flow smoothly.",
+      "details": [
+        "Observe the full picture before deciding",
+        "Detect dependencies and potential blockers",
+        "Learn and adjust based on feedback"
+      ]
+    },
+    "negociacion": {
+      "name": "Negotiation",
+      "description": "I always seek a balance between scope, time, and quality without losing client or team trust.",
+      "details": [
+        "Set priorities wisely",
+        "Align expectations transparently",
+        "Propose fair compromises for everyone"
+      ]
+    },
+    "comunicacion": {
+      "name": "Effective Communication",
+      "description": "I strive to translate complex ideas into clear messages for both technical and non-technical people.",
+      "details": [
+        "Tell stories using data",
+        "Use visualizations to simplify concepts",
+        "Write practical and simple documentation"
+      ]
+    },
+    "curiosidad": {
+      "name": "Technical Curiosity",
+      "description": "I am always willing to try new tools and patterns, but with a practical and realistic view.",
+      "details": [
+        "Experiment and learn quickly",
+        "Maintain continuous learning",
+        "Compare solutions before applying them"
+      ]
+    },
+    "responsabilidad": {
+      "name": "Extreme Responsibility",
+      "description": "I fully take ownership of my work results and the context surrounding them.",
+      "details": [
+        "Own the projects",
+        "Don't just point out problems, propose solutions",
+        "Communicate risks transparently and on time"
+      ]
+    },
+    "resiliencia": {
+      "name": "Resilience",
+      "description": "I remain calm and focused even when blockages, errors, or unexpected changes arise.",
+      "details": [
+        "Learn from mistakes without dramatizing",
+        "Seek alternative paths when something fails",
+        "Keep moving forward without losing sight of goals"
+      ]
+    },
+    "resultados": {
+      "name": "Results-Oriented",
+      "description": "I focus on delivering real value with impact on the business and users.",
+      "details": [
+        "Measure progress with clear metrics",
+        "Deliver frequent and quality updates",
+        "Validate ideas directly with users"
+      ]
+    }
+  },
+  "projects": {
+    "title": "PROJECTS",
+    "arenacombat": {
+      "title": "Arena Mortal Combat",
+      "description": "Arcade-style fighting game using vite and fetchApi"
+    },
+    "hamburgesaartesanal": {
+      "title": "Artisanal Burger",
+      "description": "Website for an artisanal restaurant"
+    },
+    "villanshub": {
+      "title": "Villans Hub",
+      "description": "Platform for comic villain fans"
     }
   }
 }

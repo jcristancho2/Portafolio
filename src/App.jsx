@@ -6,21 +6,24 @@ import Projects from "./modules/Projects";
 import Contact from "./modules/Contact";
 import ElectronicBacground from"./components/ElectronicBacground";
 import About from "./modules/About";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-black">
-      <ElectronicBacground/>
-      <div className="relative z-50">
-        <Navbar />
-        <div className="relative z-10">
-          <Home />
-          <About/>
-          <Skills />
-          <Projects />
-          <Contact />
+    <ThemeProvider>
+      <div className="relative min-h-screen bg-gray-100 dark:bg-black transition-colors duration-300">
+        <ElectronicBacground/>
+        <div className="relative z-50">
+          <Navbar />
+          <div className="relative z-10">
+            <Home />
+            <About/>
+            <Skills />
+            <Projects />
+            <Contact />
+          </div>
         </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }

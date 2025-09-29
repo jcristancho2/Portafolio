@@ -42,12 +42,133 @@
       "message": "Mensaje",
       "placeholderName": "Tu nombre",
       "placeholderEmail": "tucorreo@ejemplo.com",
-      "placeholderMessage": "Cuéntame en pocas líneas qué necesitas. Prometo responderte pronto!"
+      "placeholderMessage": "  Cuéntame en pocas líneas qué necesitas. Prometo responderte pronto!"
     },
     "privacy": "Acepto que uses mis datos únicamente para responder este mensaje. No enviarás spam.",
     "button": "Enviar",
     "sending": "Enviando..."
+  },
+  "navbar": {
+    "home": "INICIO",
+    "about": "SOBRE MÍ",
+    "skills": "HABILIDADES",
+    "projects": "PROYECTOS",
+    "contact": "CONTACTO"
+  },
+  "skills": {
+    "technical": {
+      "title": "Habilidades Técnicas",
+      "subtitle": "Una visión integral de mi experiencia técnica en diferentes dominios"
+    },
+    "categories": {
+      "Languages": "Lenguajes",
+      "Frameworks": "Frameworks",
+      "Backend & DB": "Marcos de trabajo",
+      "Tools": "Herramientas",
+      "Hardware & Others": "Hardware y Otros"
+    },
+    "soft": {
+      "title": "Habilidades Blandas",
+      "subtitle": "Competencias interpersonales y de gestión que refuerzan mi perfil técnico",
+      "cta": "¿Colaboramos?",
+      "items": {
+        "Comunicación": "Comunicación",
+        "Liderazgo": "Liderazgo"
+      },
+      "descriptions": {
+        "Comunicación": "Capacidad para expresar ideas claramente...",
+        "Liderazgo": "Habilidad para motivar y guiar equipos..."
+      }
+    }
+  },
+  "softSkills": {
+    "liderazgo": {
+      "name": "Liderazgo situacional",
+      "description": "Sé adaptar mi forma de liderar según el contexto y el equipo, manteniendo siempre el enfoque y el ritmo del trabajo.",
+      "details": [
+        "Delego de acuerdo con las fortalezas de cada persona",
+        "Comunico objetivos de manera clara y directa",
+        "Motivo con el ejemplo y la acción"
+      ]
+    },
+    "analitico": {
+      "name": "Pensamiento analítico",
+      "description": "Me gusta entender cómo encajan las piezas, identificar riesgos a tiempo y diseñar soluciones que fluyan sin fricciones.",
+      "details": [
+        "Observo el panorama completo antes de decidir",
+        "Detecto dependencias y posibles bloqueos",
+        "Aprendo y ajusto a partir del feedback"
+      ]
+    },
+    "negociacion": {
+      "name": "Negociación",
+      "description": "Busco siempre un balance entre alcance, tiempo y calidad, sin perder la confianza del cliente ni del equipo.",
+      "details": [
+        "Defino prioridades con criterio",
+        "Alineo expectativas de forma transparente",
+        "Propongo compromisos justos para todos"
+      ]
+    },
+    "comunicacion": {
+      "name": "Comunicación efectiva",
+      "description": "Me esfuerzo por traducir ideas complejas en mensajes claros, tanto para personas técnicas como no técnicas.",
+      "details": [
+        "Cuento historias a partir de datos",
+        "Uso visualizaciones para simplificar conceptos",
+        "Escribo documentación práctica y sencilla"
+      ]
+    },
+    "curiosidad": {
+      "name": "Curiosidad técnica",
+      "description": "Siempre tengo la disposición de probar nuevas herramientas y patrones, pero con una mirada práctica y realista.",
+      "details": [
+        "Experimento y aprendo con rapidez",
+        "Mantengo un aprendizaje continuo",
+        "Comparo soluciones antes de aplicarlas"
+      ]
+    },
+    "responsabilidad": {
+      "name": "Responsabilidad extrema",
+      "description": "Asumo por completo los resultados de mi trabajo y me hago cargo del contexto que los rodea.",
+      "details": [
+        "Tomo ownership de los proyectos",
+        "No me limito a señalar problemas, propongo soluciones",
+        "Comunico riesgos con transparencia y a tiempo"
+      ]
+    },
+    "resiliencia": {
+      "name": "Resiliencia",
+      "description": "Mantengo la calma y el enfoque incluso cuando surgen bloqueos, errores o cambios inesperados.",
+      "details": [
+        "Aprendo de los errores sin dramatizar",
+        "Busco caminos alternativos cuando algo falla",
+        "Sigo avanzando sin perder de vista los objetivos"
+      ]
+    },
+    "resultados": {
+      "name": "Orientación a resultados",
+      "description": "Me enfoco en entregar valor real, con impacto en el negocio y en los usuarios.",
+      "details": [
+        "Mido el progreso con métricas claras",
+        "Entrego avances frecuentes y de calidad",
+        "Valido las ideas directamente con los usuarios"
+      ]
+    }
+  },
+    "projects": {
+    "title": "PROYECTOS",
+    "arenacombat": {
+      "title": "Arena Mortal Combat",
+      "description": "Juego de combate estilo arcade con React y Node.js"
+    },
+    "hamburgesaartesanal": {
+      "title": "Hamburguesa Artesanal",
+      "description": "Página web para un restaurante artesanal"
+    },
+    "villanshub": {
+      "title": "Villans Hub",
+      "description": "Plataforma para fans de villanos de cómics"
+    }
   }
-
 
 }

@@ -73,7 +73,7 @@ export default function Carousel({ items }) {
             onClick={() => goToSlide(index)}
           >
             {/* Tarjeta */}
-            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-transparent shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 group">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-900 dark:to-black border border-gray-300 dark:border-transparent shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 group">
               {/* Imagen */}
               <div className="relative w-full h-full md:h-full overflow-hidden">
                 <img
@@ -110,12 +110,12 @@ export default function Carousel({ items }) {
               </div>
 
               {/* Info */}
-              <div className="absolute bottom-4 left-4 right-4 rounded-xl p-4 bg-transparent backdrop-blur-md shadow-lg border border-white/10">
-                <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-orange-400 transition-colors">
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl p-4 bg-white/10 dark:bg-transparent backdrop-blur-md shadow-lg border border-gray-300/20 dark:border-white/10">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-orange-400 transition-colors">
                   {item.title}
                 </h3>
                 {item.description && (
-                  <p className="text-gray-300 text-xs mb-2 line-clamp-2">
+                  <p className="text-gray-700 dark:text-gray-300 text-xs mb-2 line-clamp-2">
                     {item.description}
                   </p>
                 )}
@@ -124,7 +124,7 @@ export default function Carousel({ items }) {
                     {item.technologies.slice(0, 3).map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-0.5 text-[10px] bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30"
+                        className="px-2 py-0.5 text-[10px] bg-orange-500/20 text-orange-600 dark:text-orange-300 rounded-full border border-orange-500/30"
                       >
                         {tech}
                       </span>
@@ -141,14 +141,14 @@ export default function Carousel({ items }) {
   <button
     onClick={prevSlide}
     disabled={isAnimating}
-    className="absolute left-4 sm:left-10 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
+    className="absolute left-4 sm:left-10 top-1/2 -translate-y-1/2 p-3 bg-white/50 dark:bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
   >
     <ChevronLeft className="w-6 h-6 text-orange-400" />
   </button>
   <button
     onClick={nextSlide}
     disabled={isAnimating}
-    className="absolute right-4 sm:right-10 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
+    className="absolute right-4 sm:right-10 top-1/2 -translate-y-1/2 p-3 bg-white/50 dark:bg-black/50 backdrop-blur-sm rounded-full border border-orange-500/30 hover:bg-orange-500/20 hover:border-orange-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-20"
   >
     <ChevronRight className="w-6 h-6 text-orange-400" />
   </button>
@@ -163,7 +163,7 @@ export default function Carousel({ items }) {
         className={`w-3 h-3 rounded-full transition-all duration-300 ${
           index === currentIndex
             ? "bg-orange-500 shadow-lg shadow-orange-500/50"
-            : "bg-gray-600 hover:bg-gray-500"
+            : "bg-gray-400 dark:bg-gray-600 hover:bg-gray-500 dark:hover:bg-gray-500"
         }`}
       />
     ))}
