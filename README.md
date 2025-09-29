@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Portafolio Personal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es un portafolio personal desarrollado en React, diseñado para mostrar proyectos, habilidades y experiencia profesional. Incluye soporte multilenguaje, temas claro/oscuro y una interfaz moderna y responsiva.
 
-## Available Scripts
+## 🚀 Características
 
-In the project directory, you can run:
+- Interfaz moderna y responsiva
+- Soporte para tema claro/oscuro
+- Multilenguaje (Español/Inglés)
+- Animaciones y efectos visuales
+- Sección de proyectos con imágenes
+- Listado de habilidades técnicas y blandas
 
-### `npm start`
+## 🖥️ Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Puedes ver una demo en vivo aquí:  
+[https://ingcristancho-dev.onrender.com/](https://ingcristancho-dev.onrender.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Instalación
 
-### `npm test`
+1. Clona el repositorio:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/jcristancho2/portafolio.git
+   cd portafolio
+   ```
 
-### `npm run build`
+2. Instala las dependencias:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Inicia el servidor de desarrollo:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+4. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠️ Tecnologías utilizadas
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [i18next](https://www.i18next.com/) para internacionalización
+- [PostCSS](https://postcss.org/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📂 Estructura del proyecto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+src/
+  api/               # Lógica de conexión a APIs
+  assets/            # Imágenes y recursos estáticos
+  components/        # Componentes reutilizables
+  contexts/          # Contextos de React (Theme, etc.)
+  data/              # Datos estáticos (skills, etc.)
+  i18n/              # Archivos de internacionalización
+  modules/           # Secciones principales del sitio
+  App.jsx            # Componente principal
+  index.js           # Punto de entrada
+public/              # Archivos públicos y estáticos
+build/               # Archivos generados para producción
+```
 
-## Learn More
+## 📄 Scripts útiles
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `npm start` — Inicia el servidor de desarrollo
+- `npm run build` — Genera la versión de producción
+- `npm test` — Ejecuta los tests
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🤝 Contribuciones
 
-### Code Splitting
+¡Las contribuciones son bienvenidas! Siéntete libre de abrir issues o pull requests.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📧 Contacto
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- GitHub: [jcristancho2](https://github.com/jcristancho2)
+- Demo: [https://ingcristancho-dev.onrender.com/](https://ingcristancho-dev.onrender.com/)
