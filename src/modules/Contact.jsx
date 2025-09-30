@@ -83,7 +83,7 @@ export default function Contact() {
         );
       }
     } catch (error) {
-      console.error("Error enviando formulario:", error);
+      console.error("enviando formulario:", error);
       toast.warn(
         <div>
           <strong>⚠️ {t("contact.warningTitle")}</strong>
