@@ -7,109 +7,106 @@ import TypingEffect from "../components/TypingEffect"
 import { ChevronDown, Github, Linkedin, Mail, FileText } from "lucide-react"
 import Loader from "../components/Loader"
 
-
 export default function Home() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
   const [, setCurrentRole] = useState(0)
 
-  // 👇 loader state
+  // Loader state
   const [loading, setLoading] = useState(true)
-  const [, setLoaded] = useState(false)
 
   const roles = ["SOFTWARE DEVELOPER", "ELECTRONIC ENGINEER"]
-  //const homedescription = ["Beta", "Improving", "Learning", "Creating", "Innovating"]
 
   useEffect(() => {
-  setIsVisible(true)
+    setIsVisible(true)
 
-  const interval = setInterval(() => {
-    setCurrentRole((prev) => (prev + 1) % roles.length)
-  }, 3000)
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length)
+    }, 3000)
 
-  const timer = setTimeout(() => {
-    setLoading(false)
-    setLoaded(true)
-  }, 1500)
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 1500)
 
-  return () => {
-    clearInterval(interval)
-    clearTimeout(timer)
-  }
-}, [roles.length])
+    return () => {
+      clearInterval(interval)
+      clearTimeout(timer)
+    }
+  }, [roles.length])
 
   const scrollToNext = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
   }
-  // 👇 mientras carga mostramos Loader
-  if (loading) {
-    return <Loader />
-  }
+
+  if (loading) return <Loader />
 
   return (
-    <section id="home" className="max-h-screen bg-transparent text-gray-900 dark:text-white relative overflow-hidden flex flex-col lg:m-10 transition-colors duration-300"
+    <section
+      id="home"
+      className="bg-transparent text-gray-900 dark:text-white relative overflow-hidden flex flex-col lg:m-10 transition-colors duration-300"
     >
-  
       {/* Hero Section */}
-      <div className="relative z-50 flex flex-col lg:flex-row items-center justify-center h-screen pb-20 lg:px-16 text-center lg:text-left">
+      <div className="relative z-50 2xl:gap-12 flex flex-col lg:flex-row items-center justify-center h-screen pb-20 lg:px-16 text-center lg:text-left">
         
-        {/* Imagen perfil (funko) */}
+        {/* Imagen perfil */}
         <div className="relative flex justify-center lg:justify-end w-full lg:w-1/2">
           <img
             src="/funko.png"
-            alt="Profile"
-            className={` z-10 transition-all duration-1000 delay-300 
+            alt="Funko estilo avatar de perfil"
+            className={`z-10 transition-all duration-1000 delay-300 
               ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
-              max-w-xs lg:max-w-sm min-h-[400px] w-auto object-contain lg:max-h-[500px]
+              max-w-xs sm:max-w-sm lg:max-w-md 2xl:max-w-xl min-h-[300px] w-auto object-contain
             `}
           />
 
-          {/* Card de información sobrepuesta */}
-          <Card className="absolute z-100 left-70 bottom-0 lg:left-60 p-4 bg-white/10 dark:bg-white/10 backdrop-blur-sm border border-white/20 dark:border-white/20 shadow-lg max-w-xl">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+          {/* Card info */}
+          <Card className="absolute z-[100] bottom-0 left-1/2 -translate-x-1/2 p-4 
+            bg-white/10 dark:bg-white/10 backdrop-blur-sm border border-white/20 
+            shadow-lg w-4/5 max-w-1/2 lg:max-w-xl 2xl:max-w-auto items-center text-center"
+
+          >
+            <h2 className="text-xl lg:text-2xl xl:text-2xl font-bold text-gray-900 dark:text-white mb-2">
               {t("home.card.name")}
             </h2>
-            <p className="text-ml text-gray-700 dark:text-gray-200">
-              {t("home.card.title")}r
+            <p className="text-base lg:text-lg xl:text-2xl text-gray-700 dark:text-gray-200">
+              {t("home.card.title")}
             </p>
           </Card>
-
-
         </div>
 
         {/* Texto e info */}
         <div
-          className={`mt-4 lg:mt-0 w-full lg:w-1/2 space-y-8 transition-all duration-1000 delay-500 ${
+          className={`mt-6 lg:mt-0 w-full lg:w-1/2 space-y-8 transition-all duration-1000 delay-500 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
           {/* Main Title */}
           <div className="space-y-4">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-bold leading-tight">
               {t("home.hero.always")}
               <br />
-            <div className="h-6 sm:h-10 lg:h-12">  
-              <span className="text-3xl sm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 animate-gradient">
-                <TypingEffect
-                  texts={t("home.hero.descriptions", { returnObjects: true })}
-                  speed={80}
-                  deleteSpeed={50}
-                  pause={1500}
-                  loop
-                  className="inline"
-                />
-              </span>
-            </div>
+              <div className="h-8 sm:h-10 lg:h-12">
+                <span className="text-2xl sm:text-3xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 animate-gradient">
+                  <TypingEffect
+                    texts={t("home.hero.descriptions", { returnObjects: true })}
+                    speed={80}
+                    deleteSpeed={50}
+                    pause={1500}
+                    loop
+                    className="inline"
+                  />
+                </span>
+              </div>
             </h1>
           </div>
 
           {/* Social Links */}
           <div className="flex items-center justify-center lg:justify-start space-x-6">
             {[
-              { icon: Github, href: "https://github.com/jcristancho2 ", color: "hover:text-gray-900 dark:hover:text-white" },
+              { icon: Github, href: "https://github.com/jcristancho2", color: "hover:text-gray-900 dark:hover:text-white" },
               { icon: Linkedin, href: "https://www.linkedin.com/in/jcristanchool", color: "hover:text-blue-400" },
               { icon: Mail, href: "mailto:jocristanchool@gmail.com", color: "hover:text-orange-400" },
-              { icon: FileText, href: "https://drive.google.com/file/d/1DW2FGUqbqrcTxOp2QORjWc1YzB1jCFcj/view?usp=sharing", color: "hover:text-green-400" }, // 👈 Nuevo ítem para CV
+              { icon: FileText, href: "https://drive.google.com/file/d/1DW2FGUqbqrcTxOp2QORjWc1YzB1jCFcj/view?usp=sharing", color: "hover:text-green-400" },
             ].map((social, index) => {
               const Icon = social.icon
               return (
@@ -129,7 +126,7 @@ export default function Home() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute z-50 bottom-20 left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-50">
         <button
           onClick={scrollToNext}
           className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 animate-bounce"

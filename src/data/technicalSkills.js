@@ -28,7 +28,7 @@ const technicalSkills = [
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C# Icon" width={60} height={60} />,
     name: "C#",
-    color: "from-purple-300/30 to-pink-400/30",
+    color: "from-purple-300/30 to-pink-500/30",
     docLink: "https://learn.microsoft.com/en-us/dotnet/csharp/",
   },
   {
@@ -58,13 +58,13 @@ const technicalSkills = [
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" alt=".NET Icon" width={60} height={60} />,
     name: ".NET",
-    color: "from-purple-400/30 to-blue-500/30",
+    color: "from-blue-800/30 to-white-300/30",
     docLink: "https://learn.microsoft.com/en-us/dotnet/core/",
   },
   {
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL Icon" width={60} height={60} />,
     name: "MySQL",
-    color: "from-blue-300/30 to-cyan-400/30",
+    color: "from-purple-200/30 to-blue-500/30",
     docLink: "https://dev.mysql.com/doc/",
   },
   {

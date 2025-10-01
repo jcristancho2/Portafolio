@@ -85,7 +85,7 @@ export default function Skills() {
                       <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-200 flex items-center justify-center">
                         {skill.icon}
                       </div>
-                      <span className="text-sm font-medium text-center">
+                      <span className="text-sm font-medium text-center text-gray-900 dark:text-white">
                         {skill.name}
                       </span>
                     </motion.div>

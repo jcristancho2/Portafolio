@@ -70,16 +70,16 @@ export default function Contact() {
             <strong>✅ {t("contact.successTitle")}</strong>
             <p>{t("contact.successMessage")}</p>
           </div>,
-          { autoClose: 5000, theme: "colored" }
+          { autoClose: 5000, theme: "colorgreen" }
         );
         setFormData({ name: "", email: "", message: "" });
       } else {
         toast.error(
           <div>
-            <strong>❌ {t("contact.errorTitle")}</strong>
+            <strong>✅✅ {t("contact.errorTitle")}</strong>
             <p>{t("contact.errorMessage")}</p>
           </div>,
-          { autoClose: 6000, theme: "colored" }
+          { autoClose: 6000, theme: "colorgreen" }
         );
       }
     } catch (error) {
@@ -89,7 +89,7 @@ export default function Contact() {
           <strong>⚠️ {t("contact.warningTitle")}</strong>
           <p>{t("contact.warningMessage")}</p>
         </div>,
-        { autoClose: 6000, theme: "colored" }
+        { autoClose: 6000, theme: "colorgreen" }
       );
     } finally {
       setLoading(false);
@@ -175,7 +175,7 @@ export default function Contact() {
 
               {/* Mensaje */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                <label className="block text-sm  font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                   {t("contact.form.message")}
                 </label>
                 <textarea
@@ -185,7 +185,7 @@ export default function Contact() {
                   }
                   placeholder={t("contact.form.placeholderMessage")}
                   rows={4}
-                  className="w-full bg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded-lg focus:border-cyan-400 focus:outline-none transition-colors text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none"
+                  className="w-full p-4 mbg-white/50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 rounded-lg focus:border-cyan-400 focus:outline-none transition-colors text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none"
                   required
                 />
               </div>

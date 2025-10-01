@@ -6,22 +6,22 @@ export default function Projects() {
 
   const projects = [
     {
-      img: "/projects/arenacombat.png",
+      img: "/projects/arenacombat.webp",
       title: t("projects.arenacombat.title"),
       description: t("projects.arenacombat.description"),
-      technologies: ["React", "Node.js", "Tailwind"]
+      technologies: ["Vanilla", "JsonServer", "Tailwind"]
     },
     {
-      img: "/projects/hamburgesaartesanal.png",
+      img: "/projects/hamburgesaartesanal.webp",
       title: t("projects.hamburgesaartesanal.title"),
       description: t("projects.hamburgesaartesanal.description"),
-      technologies: ["React", "Node.js", "Tailwind"]
+      technologies: ["JavaScript", "CSS3", "HTML5"]
     },
     {
-      img: "/projects/villanshub.png",
+      img: "/projects/villanshub.webp",
       title: t("projects.villanshub.title"),
       description: t("projects.villanshub.description"),
-      technologies: ["React", "Node.js", "Tailwind"]
+      technologies: ["Vanilla", "JsonServer", "Tailwind"]
     },
   ];
 

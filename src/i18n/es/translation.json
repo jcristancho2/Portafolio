@@ -4,8 +4,8 @@
     "info": "Hola, soy",
     "whoAmI": "Jorge Andrés Cristancho Olarte.",
      
-    "description1": "ingeniero electrónico y desarrollador de software junior apasionado por la tecnología y el aprendizaje continuo. Me motiva superar retos y transformar ideas en soluciones prácticas que combinan creatividad, eficiencia y buen diseño",
-    "description2": "Disfruto aprender nuevas herramientas, colaborar en proyectos y explorar áreas como inteligencia artificial y desarrollo fullstack, con el objetivo de crecer profesionalmente y aportar valor en cada proyecto en el que participo"
+    "description1": "Ingeniero electrónico y desarrollador de software, entusiasta de la tecnología y el aprendizaje continuo. Me motiva superar retos y transformar ideas en soluciones prácticas que integran creatividad, eficiencia y buen diseño.",
+    "description2": "Disfruto aprender nuevas herramientas, colaborar en proyectos y explorar áreas como inteligencia artificial y desarrollo font-end y Backend, con el objetivo de crecer profesionalmente y aportar valor en cada iniciativa en la que participo."
   },
   "home": {
     "card": {
@@ -32,7 +32,7 @@
     "successTitle": "Éxito",
     "successMessage": "Mensaje enviado correctamente. Te contactaré pronto.",
     "errorTitle": "Error",
-    "errorMessage": "Hubo un problema al enviar tu mensaje. Intenta nuevamente.",
+    "errorMessage": "Envio tu mensaje .",
     "warningTitle": "Advertencia",
     "warningMessage": "Error de conexión con el servidor. Verifica tu internet.",
     "preferContact": "Prefiero que me contactes por",
